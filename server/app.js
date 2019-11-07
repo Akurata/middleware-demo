@@ -81,8 +81,8 @@ app.use(passport.session());
 
 //I threw this example up using server side rendering, treating VUE like a template engine
 //I'm not entirely sure this is the right route and I will not be offended if you throw all this out.
-app.get('/', (req, res) => {
-  console.log(req.isAuthenticated())
+app.get('/home', (req, res) => {
+  console.log('ROUTE')
   //Before the server can render the template file, you can declare the variables that will be populated here.
   //Use {{ var }} for variable interpolation, the docs call it double-moustaching and im going to from now on too.
   const info = new Vue({
@@ -149,7 +149,6 @@ app.post('/login', (req, res, next) => {
 //You will be redirected here if you already logged in
 app.get('/isAuthenticated', (req, res) => {
   if(req.isAuthenticated()) {
-    res.send(`You are authenticated with session: ${req.sessionID}`);
     const info = new Vue({
       data: {
         sessionID: req.sessionID
@@ -166,7 +165,7 @@ app.get('/isAuthenticated', (req, res) => {
       }
     });
   }else {
-    res.redirect('/')
+    res.redirect('/login')
   }
 })
 

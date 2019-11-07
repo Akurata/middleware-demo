@@ -7,7 +7,7 @@ From the `/server` directory run (use `sudo` if necessary):
 
 `node app.js`
 
-Direct to `localhost` in your browser and it should show the login page.
+Direct to `localhost/home` in your browser and it should show a demo page. Clicking on 'To Login' will then direct you to the login page.
 
 The email is "test@test.com" and password "password". Once signed in, the server will then generate a json record in the sessions folder. This record is used by the passport, express-session, and file-store packages to log sessions and manage user variables.
 
